@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+h1, h3{
+	margin: 2% 0%;	
+}
+	
+#main-section{
+	padding: 5%;
+}
+	
+@media (max-width: 992px){
+	#main-section{
+		margin-top: 15%;
+	}
+}
+	
