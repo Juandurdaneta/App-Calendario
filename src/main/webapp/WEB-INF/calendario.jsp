@@ -23,15 +23,95 @@
 />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
+<style type="text/css">
+	
+	h1, h3, h4{
+		margin: 0% 0%;
+	}
+	
+	#main{
+		padding: 2% 7%;
+		margin-left: 0%;
+	}
+	
+	@media(max-width: 1308px){
+		p{
+			display: none;
+		}
+	}
+	@media (max-width: 992px){
+		h4{
+			margin-top: 1%;
+			font-size: 1.2rem;
+		}
+		#main{
+			padding: 0;
+			margin-left: 0%;
+			margin-top: 10px;
+		}
+	}
+	
+	p{
+		margin-top: 10px;
+	}
+	
+	
+	
+	@media (max-width: 580px){
+	
+		#main .btn-end{
+			padding: 5px 10px;
+			top: 5%;
+		}
+		
+	}
+	
+</style>
 </head>
 <body>
-<div class="container-fluid">
-	<div class="d-flex justify-content-center">
-		<button class="btn btn-outline-dark btn-floating prev"><i class="fas fa-arrow-left"></i></button><h3 class="semana"></h3><button class="btn btn-outline-dark btn-floating next"><i class="fas fa-arrow-right"></i></button>
-	</div>
-</div>
-
+<section id="main">
+	<div class="container-fluid">
+		
+		<!-- Fecha -->
+		<div class="row d-flex justify-content-around">	
+		<div class="col-1">
+		<div class="dropdown">
+  					<button
+   						 class="btn btn-primary dropdown-toggle btn-end"
+   						 type="button"
+   						 id="dropdownMenuButton"
+    					data-mdb-toggle="dropdown"
+   						aria-expanded="false"
+  					>
+   										 Tareas
+  					</button>
+  				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  				  <li><a class="dropdown-item" href="#">+ Nuevo calendario</a></li>
+ 				 </ul>
+				</div>
+		</div>
+			<div class="col-1 text-center">
+				<button class="btn btn-outline-dark btn-floating prev"><i class="fas fa-arrow-left"></i></button>
+				</div>
+				<div class="col-6 text-center">
+					<h3 class="semana"></h3>
+				</div>
+				<div class="col-1 text-center">
+					<button class="btn btn-outline-dark btn-floating next"><i class="fas fa-arrow-right"></i></button>	
+				</div>
+				
+						
+				<div class="col-1">
+					<button class="btn btn-primary  btn-sm btn-end">Nuevo evento</button>
+				</div>
+			
+				<div class="col-1">
+					<button class="btn btn-lg btn-floating"><i class="far fa-user"></i></button> <p style="float:right;">User</p>
+				</div>
+			
+			</div>
+		</div>
+</section>
 
 
 
