@@ -26,8 +26,10 @@
 
 </head>
 <body>
-<div class="container">
-<button class="btn prev"><</button><h1 class="semana"></h1><button class="btn next">></button>
+<div class="container-fluid">
+	<div class="d-flex justify-content-center">
+		<button class="btn btn-outline-dark btn-floating prev"><i class="fas fa-arrow-left"></i></button><h3 class="semana"></h3><button class="btn btn-outline-dark btn-floating next"><i class="fas fa-arrow-right"></i></button>
+	</div>
 </div>
 
 
@@ -58,16 +60,28 @@ const options = {
 function semanaSiguiente(){
 	i += 7
 	let semanaSiguiente = new Date();
-	semanaSiguiente.setDate(primerDia.getDate() + i);
+	semanaSiguiente.setDate(hoy.getDate() - hoy.getDay() + i);
 	let semanaSiguienteFormateado = semanaSiguiente.toLocaleDateString("es-ES", options);
 	
 	let ultimoDiaSiguiente = new Date();
-	ultimoDiaSiguiente.setDate(primerDia.getDate() + (i+6));
+	ultimoDiaSiguiente.setDate(hoy.getDate() - hoy.getDay() + (i+6));
 	let ultimoDiaSiguienteFormateado = ultimoDiaSiguiente.toLocaleDateString("es-ES", options);
 	
 	return semanaSiguienteFormateado + " - " + ultimoDiaSiguienteFormateado;
 }
 
+function semanaAnterior(){
+	i-=7
+	let semanaAnterior = new Date();
+	semanaAnterior.setDate(hoy.getDate() - hoy.getDay() + i);
+	let semanaAnteriorFormateado = semanaAnterior.toLocaleDateString("es-ES", options);
+	
+	let ultimoDiaAnterior = new Date();
+	ultimoDiaAnterior.setDate(hoy.getDate() - hoy.getDay() + (i+6));
+	let ultimoDiaAnteriorFormateado = ultimoDiaAnterior.toLocaleDateString("es-ES", options);
+	
+	return semanaAnteriorFormateado + " - " + ultimoDiaAnteriorFormateado;
+}
 
 let semanaActual = document.querySelector('.semana');
 let primerDiaFormateado = primerDia.toLocaleDateString("es-ES", options);
@@ -78,6 +92,10 @@ semanaActual.innerHTML = primerDiaFormateado + " - "+ ultimoDiaFormateado;
 
 document.querySelector(".next").addEventListener("click", function(){
 	semanaActual.innerHTML = semanaSiguiente();
+});
+
+document.querySelector(".prev").addEventListener("click", function(){
+	semanaActual.innerHTML = semanaAnterior();
 });
 
 </script>
