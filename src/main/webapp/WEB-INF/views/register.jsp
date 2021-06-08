@@ -1,35 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Crear cuenta</title>
-<!-- Font Awesome -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-  rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
-  rel="stylesheet"
-/>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-<style type="text/css">
-
-	#main-section{
-		padding: 5%;
-	}
-
-</style>
-</head>
+<%@ include file="partials/header.jsp" %>
 <body style="font-family: 'Open Sans', sans-serif;">
 
 
@@ -75,39 +44,5 @@
 </section>
 
 
-
-
-
-
-
-
-
-
-<!--  <h1>${success}</h1>
-<form action = "/register" method = "post">
-	<table style="width: 100%">
-    <tr>
-     <td>UserName</td>
-     <td><input type="text" name="username" /></td>
-    </tr>
-    <tr>
-     <td>Password</td>
-     <td><input type="password" name="pass" /></td>
-    </tr>
-     <tr>
-     <td>Repeat your password</td>
-     <td><input type="password" name="pass2" /></td>
-    </tr>
-
-   </table>
-   <input type="submit" value="Submit" />
-</form>-->
-
-
- <!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
-></script>
-</body>
-</html>
+ 
+<%@ include file="partials/footer.jsp" %>

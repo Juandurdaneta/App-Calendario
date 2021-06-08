@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CalendarioServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/calendario")
-public class CalendarioServlet extends HttpServlet {
+@WebServlet("/cerrar-sesion")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CalendarioServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,9 +27,8 @@ public class CalendarioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("username");
-		request.setAttribute("username", username);
-		request.getRequestDispatcher("/WEB-INF/views/calendario.jsp").forward(request, response);
+		 request.getSession().invalidate();
+		 request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
 	/**

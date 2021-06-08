@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 	
 	@Override
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			}else {
 				request.setAttribute("invalido","<i class=\"fas fa-exclamation-triangle\"></i> Usuario o contraseña invalidos");
 				HttpSession session = request.getSession();
-				request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 			}
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();

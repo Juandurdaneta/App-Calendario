@@ -3,5 +3,7 @@ C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\m
 C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\model\UserLogin.java
 C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\dao\userDAO.java
 C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\web\CalendarioServlet.java
+C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\web\LogoutServlet.java
+C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\model\FlitroLogin.java
 C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\web\RegisterServlet.java
 C:\Users\Juan d urdaneta\eclipse-workspace\app-calendario\src\main\java\webapp\dao\LoginDAO.java

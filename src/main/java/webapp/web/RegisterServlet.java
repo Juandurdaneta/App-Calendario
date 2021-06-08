@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+	request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -38,10 +38,10 @@ public class RegisterServlet extends HttpServlet {
 				User newUser = new User(username, password);
 				userDao.crearUsuario(newUser);
 				request.setAttribute("success", "<p class='bg-success text-white'><i class=\"far fa-thumbs-up\"></i> Usuario creado exitosamente!</p>");
-				request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request, response);
 			} else {
 				request.setAttribute("success", "<p class='bg-warning text-white'><i class='fas fa-exclamation-triangle'></i> Error al crear el usuario, intentalo de nuevo</p>");
-				request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request, response);
 			}
 			
 		}catch (Exception e) {
