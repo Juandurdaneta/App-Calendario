@@ -27,6 +27,8 @@ public class CalendarioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String username = request.getParameter("username");
+		request.setAttribute("username", username);
 		request.getRequestDispatcher("/WEB-INF/calendario.jsp").forward(request, response);
 	}
 

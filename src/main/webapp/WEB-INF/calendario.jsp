@@ -21,96 +21,90 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
   rel="stylesheet"
 />
+ <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.7.0,npm/fullcalendar@5.7.0/locales-all.min.js,npm/fullcalendar@5.7.0/locales-all.min.js,npm/fullcalendar@5.7.0/main.min.js,npm/fullcalendar@5.7.2,npm/fullcalendar@5.7.2/main.min.js,npm/fullcalendar@5.7.2/locales-all.min.js,npm/fullcalendar@5.7.2/locales-all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.7.0/main.min.css,npm/fullcalendar@5.7.0/main.min.css,npm/fullcalendar@5.7.2/main.min.css,npm/fullcalendar@5.7.2/main.min.css"
+    />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 <style type="text/css">
-	
-	h1, h3, h4{
-		margin: 0% 0%;
-	}
 	
 	#main{
 		padding: 2% 7%;
 		margin-left: 0%;
 	}
-	
-	@media(max-width: 1308px){
-		p{
-			display: none;
-		}
-	}
-	@media (max-width: 992px){
-		h4{
-			margin-top: 1%;
-			font-size: 1.2rem;
-		}
-		#main{
-			padding: 0;
-			margin-left: 0%;
-			margin-top: 10px;
-		}
-	}
-	
-	p{
-		margin-top: 10px;
-	}
-	
-	
-	
-	@media (max-width: 580px){
-	
-		#main .btn-end{
-			padding: 5px 10px;
-			top: 5%;
-		}
-		
-	}
+
 	
 </style>
 </head>
 <body>
 <section id="main">
 	<div class="container-fluid">
-		
-		<!-- Fecha -->
-		<div class="row d-flex justify-content-around">	
-		<div class="col-1">
-		<div class="dropdown">
-  					<button
-   						 class="btn btn-primary dropdown-toggle btn-end"
-   						 type="button"
-   						 id="dropdownMenuButton"
-    					data-mdb-toggle="dropdown"
-   						aria-expanded="false"
-  					>
-   										 Tareas
-  					</button>
-  				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  				  <li><a class="dropdown-item" href="#">+ Nuevo calendario</a></li>
- 				 </ul>
-				</div>
-		</div>
-			<div class="col-1 text-center">
-				<button class="btn btn-outline-dark btn-floating prev"><i class="fas fa-arrow-left"></i></button>
-				</div>
-				<div class="col-6 text-center">
-					<h3 class="semana"></h3>
-				</div>
-				<div class="col-1 text-center">
-					<button class="btn btn-outline-dark btn-floating next"><i class="fas fa-arrow-right"></i></button>	
-				</div>
-				
-						
-				<div class="col-1">
-					<button class="btn btn-primary  btn-sm btn-end">Nuevo evento</button>
-				</div>
+			<!-- Botones -->
+			<div class="row p-1">
 			
-				<div class="col-1">
-					<button class="btn btn-lg btn-floating"><i class="far fa-user"></i></button> <p style="float:right;">User</p>
-				</div>
-			
+			<div class="col-6 d-flex justify-content-start">
+				<form method="get" action="/">
+					<button type="submit" class="btn btn-danger">Cerrar Sesion</button>
+				</form>
 			</div>
+			
+				<div class="col-6 d-flex justify-content-end">
+					<form method="get" action="/user/${username}">
+						<button style="float:left "type="submit" class="btn btn-primary btn-lg btn-floating">
+							<i class="fas fa-user"></i>
+						</button>
+						<p style="float:right" class="p-2"> ${username}</p>
+					</form>
+				</div>
+			</div>
+			<!-- Calendario -->
+			<div class="row d-flex">
+				<div class="col-12">
+				  <div id="calendar"></div>
+				</div>
+			</div>
+			
 		</div>
+		
+		
+		
+		<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    
+      <div class="modal-body">
+      
+          <button
+          type="button"
+          class="btn-close"
+          data-mdb-dismiss="modal"
+          aria-label="Close"
+        ></button>
+    	
+    	<form>
+    	<!-- Nombre del evento -->
+    	
+    	<div class="form-outline mb-4">
+    		<input  class="form-control" type="datetime-local" id="fecha-inicio" name="fecha-inicio" value="">
+    		<label class="form-label" for="fecha-inicio">Fecha de inicio</label>
+    	</div>
+    	
+    	</form>
+      
+      </div>
+    </div>
+  </div>
+</div>
+		
 </section>
 
 
@@ -122,61 +116,42 @@
 ></script>
 
 <script>
-let i = 0
-let j = i;
-const hoy = new Date();
-const primerDia = new Date();
-primerDia.setDate(hoy.getDate() - hoy.getDay());
-const ultimoDia = new Date();
-ultimoDia.setDate(hoy.getDate() - hoy.getDay() + 6);
+var dateControl = document.querySelector('input[type="datetime-local"]');
+dateControl.value = '2021-06-01T08:30';
 
-const options = {
-	    weekday: "long",
-	    month: "long",
-	    day: "numeric",
-	  };
+document.addEventListener("DOMContentLoaded", function () {
+    var calendarEl = document.getElementById("calendar");
+    var eventos = [];
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      customButtons: {
+        myCustomButton: {
+          text: "Añadir evento",
+          click: añadirEvento
+        },
+      },
+      headerToolbar: {
+        center: "myCustomButton",
+      },
+      initialView: "timeGridWeek",
+      locale: "es",
+      titleFormat: { // Esto producira una fecha del tipo : "Lun, 7 de jun de 2021"
+    	    month: 'short',
+    	    year: 'numeric',
+    	    day: 'numeric',
+    	    weekday: 'short',
+    	  }
 
+      
+    });
+    
+    function añadirEvento(){
+    	const myModalEl = document.getElementById('exampleModal');
+    	const modal = new mdb.Modal(myModalEl);
+    	modal.show();
+    }
 
-function semanaSiguiente(){
-	i += 7
-	let semanaSiguiente = new Date();
-	semanaSiguiente.setDate(hoy.getDate() - hoy.getDay() + i);
-	let semanaSiguienteFormateado = semanaSiguiente.toLocaleDateString("es-ES", options);
-	
-	let ultimoDiaSiguiente = new Date();
-	ultimoDiaSiguiente.setDate(hoy.getDate() - hoy.getDay() + (i+6));
-	let ultimoDiaSiguienteFormateado = ultimoDiaSiguiente.toLocaleDateString("es-ES", options);
-	
-	return semanaSiguienteFormateado + " - " + ultimoDiaSiguienteFormateado;
-}
-
-function semanaAnterior(){
-	i-=7
-	let semanaAnterior = new Date();
-	semanaAnterior.setDate(hoy.getDate() - hoy.getDay() + i);
-	let semanaAnteriorFormateado = semanaAnterior.toLocaleDateString("es-ES", options);
-	
-	let ultimoDiaAnterior = new Date();
-	ultimoDiaAnterior.setDate(hoy.getDate() - hoy.getDay() + (i+6));
-	let ultimoDiaAnteriorFormateado = ultimoDiaAnterior.toLocaleDateString("es-ES", options);
-	
-	return semanaAnteriorFormateado + " - " + ultimoDiaAnteriorFormateado;
-}
-
-let semanaActual = document.querySelector('.semana');
-let primerDiaFormateado = primerDia.toLocaleDateString("es-ES", options);
-let ultimoDiaFormateado = ultimoDia.toLocaleDateString("es-ES", options);
-
-
-semanaActual.innerHTML = primerDiaFormateado + " - "+ ultimoDiaFormateado;
-
-document.querySelector(".next").addEventListener("click", function(){
-	semanaActual.innerHTML = semanaSiguiente();
-});
-
-document.querySelector(".prev").addEventListener("click", function(){
-	semanaActual.innerHTML = semanaAnterior();
-});
+    calendar.render();
+  });
 
 </script>
 

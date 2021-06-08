@@ -42,6 +42,7 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 			if(loginDao.validar(userLogin)) {
+				request.getSession().setAttribute("username", username);
 				response.sendRedirect("/calendario");
 			}else {
 				request.setAttribute("invalido","<i class=\"fas fa-exclamation-triangle\"></i> Usuario o contraseña invalidos");
