@@ -39,25 +39,55 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content p-4">
 
-    
-      <div class="modal-body">
-      
+   
           <button
           type="button"
           class="btn-close"
           data-mdb-dismiss="modal"
           aria-label="Close"
         ></button>
-    	
+    
+    
+      <div class="modal-body">
+      
     	<form>
     	<!-- Nombre del evento -->
-    	
-    	<div class="form-outline mb-4">
-    		<input  class="form-control" type="datetime-local" id="fecha-inicio" name="fecha-inicio" value="">
-    		<label class="form-label" for="fecha-inicio">Fecha de inicio</label>
+    	  <div class="form-outline mb-4">
+    		<input type="text" id="nombreEvento" name="nombreEvento" class="form-control" />
+    		<label class="form-label" for="nombreEvento">Nombre del Evento</label>
+ 		 </div>
+ 		 <!-- Fecha inicio / Fecha Fin -->
+    	<div class="row mb-4">
+    		<div class="col-6">
+    			<div class="form-outline">
+    				<input  class="form-control" type="datetime-local" id="fecha-inicio" name="fecha-inicio" value="">
+    				<label class="form-label" for="fecha-inicio">Fecha inicio</label>
+    			</div>
+    		</div>
+    		<div class="col-6">
+    			<div class="form-outline">
+    				<input class="form-control" type="datetime-local" id="fecha-fin" name="fecha-fin" value="">
+    				<label class="form-label" for="fecha-fin">Fecha fin</label>
+    			</div>
+    		</div>
     	</div>
+    	<!-- Imagen -->
+    	<div class="form mb-4">
+    		<label class="form-label" for="imagen">Agregar imagen</label>
+    		<input type="file" name="imagen" id="imagen" class="form-control" accept="image/png, image/jpeg">
+    	</div>
+    	<!-- Color -->
+    	
+    	<div class="form mb-4">
+    		<label class="form-label" for="colorEvento">Color:</label>
+    		<input type="color" id="colorEvento" name="colorEvento" value="#0041C2">
+    	</div>
+    	
+    	<!-- Agregar evento -->
+    	
+    	<button type="submit" class="btn btn-primary btn-block mb-4">Agregar Evento</button>
     	
     	</form>
       
@@ -69,53 +99,6 @@
 </section>
 
 
+<%@ include file="partials/LogicaCalendario.jsp" %>
 
-
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
-></script>
-
-<script>
-var dateControl = document.querySelector('input[type="datetime-local"]');
-dateControl.value = '2021-06-01T08:30';
-
-document.addEventListener("DOMContentLoaded", function () {
-    var calendarEl = document.getElementById("calendar");
-    var eventos = [];
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      customButtons: {
-        myCustomButton: {
-          text: "Añadir evento",
-          click: añadirEvento
-        },
-      },
-      headerToolbar: {
-        center: "myCustomButton",
-      },
-      initialView: "timeGridWeek",
-      locale: "es",
-      titleFormat: { // Esto producira una fecha del tipo : "Lun, 7 de jun de 2021"
-    	    month: 'short',
-    	    year: 'numeric',
-    	    day: 'numeric',
-    	    weekday: 'short',
-    	  }
-
-      
-    });
-    
-    function añadirEvento(){
-    	const myModalEl = document.getElementById('exampleModal');
-    	const modal = new mdb.Modal(myModalEl);
-    	modal.show();
-    }
-
-    calendar.render();
-  });
-
-</script>
-
-
-</body>
-</html>
+<%@ include file="partials/footer.jsp" %>
