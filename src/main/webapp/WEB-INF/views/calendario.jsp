@@ -29,25 +29,24 @@
 			
 		</div>
 		
-		
-		
+			<!-- Modal añadir evento -->
 		<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content p-4">
+ 			 class="modal fade"
+  			id="añadirEventoModal"
+  			tabindex="-1"
+  			aria-labelledby="exampleModalLabel"
+ 			 aria-hidden="true"
+									>
+  		<div class="modal-dialog">
+    		<div class="modal-content p-4">
 
    
-          <button
-          type="button"
-          class="btn-close"
-          data-mdb-dismiss="modal"
-          aria-label="Close"
-        ></button>
+          		<button
+          		type="button"
+          		class="btn-close"
+         		 data-mdb-dismiss="modal"
+          		aria-label="Close"
+        		></button>
     
     
       <div class="modal-body">
@@ -92,7 +91,10 @@
     	</form>
       
       </div>
+      
+      
     </div>
+    
   </div>
 </div>
 		

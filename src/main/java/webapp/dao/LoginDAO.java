@@ -20,8 +20,6 @@ public class LoginDAO {
 				PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE username = ? and pass = ?;")){
 			preparedStatement.setString(1, user.getUsername());
 			preparedStatement.setString(2, user.getPassword());
-			
-			System.out.println(preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
 			status = rs.next();
 		}catch(SQLException e) {

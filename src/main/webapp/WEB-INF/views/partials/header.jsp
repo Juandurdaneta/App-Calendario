@@ -45,9 +45,15 @@
 	
 	#main{
 		padding: 2% 7%;
-		margin-left: 0%;
 	}
-
+	
+	.formularioPerfil .btn{
+		margin: 5% 12%;
+	}
+	
+	.eliminarCuenta{
+		margin-left: 30px;
+	}
 	
 	
 </style>

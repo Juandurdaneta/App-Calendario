@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-@WebFilter(urlPatterns= "/calendario")
+@WebFilter(urlPatterns = {"/calendario", "/user/*"} )
 public class FlitroLogin implements Filter {
 
 	@Override

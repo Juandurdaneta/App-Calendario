@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     function añadirEvento(){
-    	const myModalEl = document.getElementById('exampleModal');
+    	const myModalEl = document.getElementById('añadirEventoModal');
     	const modal = new mdb.Modal(myModalEl);
     	modal.show();
     }

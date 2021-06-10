@@ -16,8 +16,8 @@ public class userDAO {
 	
 	private static final String INSERTAR_USUARIOS_SQL = "INSERT INTO users" + "(username, pass) VALUES"+ "(?, ?);";
 	private static final String EDITAR_USUARIO_SQL = "UPDATE users SET username = ? WHERE user_id = ?;";
-	private static final String ELIMINAR_USUARIO_SQL ="DELETE FROM users WHERE user_id = ?;";
-	private static final String SELECCIONAR_USUARIO_SQL = "SELECT user_id, username FROM users WHERE user_id = ?;"; 
+	private static final String ELIMINAR_USUARIO_SQL ="DELETE FROM users WHERE username = ?;";
+	private static final String SELECCIONAR_USUARIO_SQL = "SELECT user_id, username FROM users WHERE username = ?;"; 
 	
 	
 
@@ -83,12 +83,12 @@ public class userDAO {
 	}
 
 	//Eliminar Usuario
-	public boolean eliminarUsuario(int id) throws SQLException{
+	public boolean eliminarUsuario(String username) throws SQLException{
 		boolean eliminado;
 		try(Connection connection = getConnection();
 				PreparedStatement statement = connection.prepareStatement(ELIMINAR_USUARIO_SQL)){
 			
-			statement.setInt(1,id);
+			statement.setString(1,username);
 			eliminado = statement.executeUpdate() > 0;
 			
 		}
