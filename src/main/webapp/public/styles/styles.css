@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+	h1, h3{
+		margin: 2% 0%;
+	}
+	
+	#main-section{
+		margin-top: 2%;
+		
+	}
+	
+	@media (max-width: 992px){
+		#main-section{
+			margin-top: 15%;
+		}
+	}	
+	
+	#main{
+		padding: 2% 7%;
+	}
+	
+	.formularioPerfil .btn{
+		margin: 5% 12%;
+	}
+	
+	.eliminarCuenta{
+		margin-left: 30px;
+	}
