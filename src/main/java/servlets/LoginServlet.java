@@ -56,13 +56,12 @@ public class LoginServlet extends HttpServlet {
 		userLogin.setUsername(username);
 		userLogin.setPassword(pass);
 		
-	
+		
 		
 		 try {
 			if(validarDatos.validar(userLogin)) {
 				request.getSession().setAttribute("username", username);
-				RequestDispatcher rd = request.getRequestDispatcher("/public/views/calendario.html");
-				rd.include(request, response);
+				response.sendRedirect("calendario");
 				
 			}else {
 				request.setAttribute("invalido","<i class=\"fas fa-exclamation-triangle\"></i> Usuario o contraseña invalidos");
