@@ -19,10 +19,10 @@ public class DB {
 	
 	public DB() {
 		try {
-			properties.load(this.getClass().getResourceAsStream("/properties/properties.properties"));
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			properties.load(this.getClass().getResourceAsStream("/propiedades/propiedades.properties"));
+			Class.forName("org.postgresql.Driver");
 			conn = DriverManager.getConnection(properties.getProperty("host") + "/" + properties.getProperty("nameBD"), 
-					properties.getProperty("username"), properties.getProperty("pass"));
+					properties.getProperty("Usuario"), properties.getProperty("pass"));
 		} catch(Exception ex) {
 			System.out.println(ex);
 		}
@@ -31,6 +31,8 @@ public class DB {
 	public static DB getInstances() {
 		return db;
 	}
+	
+		
 	public void dbPrepareStatement(String query, Object... obj) {
 		try {
 			this.pstmt = this.conn.prepareStatement(query);

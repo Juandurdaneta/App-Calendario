@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controllers.ControlRegistro;
+import helpers.Hashing;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -45,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		String pass2 = request.getParameter("pass2");
 		
-		if(pass.equals(pass2)) {
+		if(pass.equals(pass2) && ControlRegistro.Registro(username, pass)) {
 			response.setContentType("text/html");
 			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 			rd.include(request, response);
