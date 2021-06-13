@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,18 +43,16 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("application/json");
 		String username = request.getParameter("username");
 		String pass = request.getParameter("pass");
 		String pass2 = request.getParameter("pass2");
-		
-		if(pass.equals(pass2) && ControlRegistro.Registro(username, pass)) {
-			response.setContentType("text/html");
-			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-			rd.include(request, response);
-		}
-		else {
-			System.out.println(pass + " " + pass2 + " " + ControlRegistro.Registro(username, pass));
-		}
+		PrintWriter out=response.getWriter();
+		if(pass.equals(pass2) && ControlRegistro.Registro(username, pass)) 
+			out.println("{\"status\":\"200\"}");
+		else 
+			out.println("{\"status\":\"500\"}");
+		out.close();	
 	}
 
 }

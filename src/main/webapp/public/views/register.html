@@ -22,12 +22,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 <!-- CSS -->
-<link rel="stylesheet" href="../styles/styles.css">
+<link rel="stylesheet" type="text/css" href="public/styles/styles.css">
 </head>
 <body style="font-family: 'Open Sans', sans-serif;">
 
 
-<section id="main-section">
+<section class="main-section">
 
 	<div class="container">
 		<div class="row d-flex justify-content-center">
@@ -42,7 +42,8 @@
 			<!-- Formulario de Registro -->
 			
 			<div class="col-xl-5 col-md-8">
-				<form class="bg-white rounded shadow-5-strong p-5 main-form" action="register" method="post">
+				<form class="bg-white rounded shadow-5-strong p-5" id="main-form">
+					<p id="alerta"></p>
 					<div class="form-outline mb-4">
 						<input type="text" class="form-control" name="username" id="username">
 						<label for="username" class="form-label"><i class="fas fa-user"></i> Nombre de usuario</label>
@@ -66,7 +67,7 @@
 				<h3 style="color:#4a4a4a">Ya tienes cuenta?</h3>
 				<br>
 				
-				<a class="btn btn-outline-dark btn-lg" href="/App-Calendario-WebII">Iniciar sesion</a>
+				<a class="btn btn-outline-dark btn-lg" href="/">Iniciar sesion</a>
 				</div>
 				
 			</div>
@@ -80,6 +81,8 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+
+<script type="text/javascript" src="public/scripts/index.js"></script>
 
 </body>
 
