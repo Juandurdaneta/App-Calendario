@@ -21,8 +21,7 @@ public class DB {
 		try {
 			properties.load(this.getClass().getResourceAsStream("/propiedades/propiedades.properties"));
 			Class.forName("org.postgresql.Driver");
-			conn = DriverManager.getConnection(properties.getProperty("host") + "/" + properties.getProperty("nameBD"), 
-					properties.getProperty("Usuario"), properties.getProperty("pass"));
+			conn = DriverManager.getConnection("jdbc:postgresql://ec2-54-224-194-214.compute-1.amazonaws.com:5432" + "/" + "d3tjdf5bf90vaa","rfobzujdtmevyk", "fb950993af16ce0d371f5b83a7b1369cd8a61d8179bddde7fefca62c7bbd27ad");
 		} catch(Exception ex) {
 			System.out.println(ex);
 		}

@@ -1,10 +1,10 @@
 @charset "ISO-8859-1";
 	h1, h3{
-		
+		color: blue;
 	}
 	
 	#main-section{
-		margin-top: 2%;
+		margin-top: 5%;
 		
 	}
 	

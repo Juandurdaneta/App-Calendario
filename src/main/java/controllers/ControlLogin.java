@@ -19,7 +19,8 @@ public class ControlLogin {
 		try {
 			String clave_hash = Hashing.encriptar(request.getParameter("pass"));
 			ArrayList<String> datos = conectar.dbStatement("SELECT * FROM users WHERE username = '"+request.getParameter("username")+"' and pass = '"+clave_hash+"';");
-			if(datos.get(0).equals(request.getParameter("username"))) {
+			
+			if(datos.get(1).equals(clave_hash)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("username", request.getParameter("username"));
 				return true;

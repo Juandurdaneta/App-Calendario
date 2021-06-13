@@ -56,10 +56,10 @@ public class RegisterServlet extends HttpServlet {
 		String pass2 = request.getParameter("pass2");
 		
 		if(pass.equals(pass2) && ControlRegistro.Registro(username, pass)) {
-			
-			
-			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			s.print("<script>window.alert('Te haz registrado exitosamente!')</script>");
+			RequestDispatcher rd = request.getRequestDispatcher("/public/views/register.html");
 			rd.include(request, response);
+			
 		}
 			
 		else {
