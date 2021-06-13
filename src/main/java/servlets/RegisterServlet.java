@@ -33,9 +33,12 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		response.setContentType("text/html");
 		RequestDispatcher rd = request.getRequestDispatcher("/public/views/register.html");
 		rd.include(request, response);
+		String mensajeExito = "Registro exitoso";
+		request.setAttribute("exito", mensajeExito);
 	}
 
 	/**
@@ -43,16 +46,27 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("application/json");
+		
+		
+		response.setContentType("text/html");
+		PrintWriter s=response.getWriter();
+		
 		String username = request.getParameter("username");
 		String pass = request.getParameter("pass");
 		String pass2 = request.getParameter("pass2");
-		PrintWriter out=response.getWriter();
-		if(pass.equals(pass2) && ControlRegistro.Registro(username, pass)) 
-			out.println("{\"status\":\"200\"}");
-		else 
-			out.println("{\"status\":\"500\"}");
-		out.close();	
+		
+		if(pass.equals(pass2) && ControlRegistro.Registro(username, pass)) {
+			
+			
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			rd.include(request, response);
+		}
+			
+		else {
+			s.print("<script>window.alert('Hubo un error al tratar de registrar el usuario, intentelo de nuevo')</script>");
+			RequestDispatcher rd = request.getRequestDispatcher("/public/views/register.html");
+			rd.include(request, response);
+		}	
 	}
 
 }
