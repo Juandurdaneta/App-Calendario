@@ -37,8 +37,7 @@ public class RegisterServlet extends HttpServlet {
 		response.setContentType("text/html");
 		RequestDispatcher rd = request.getRequestDispatcher("/public/views/register.html");
 		rd.include(request, response);
-		String mensajeExito = "Registro exitoso";
-		request.setAttribute("exito", mensajeExito);
+		
 	}
 
 	/**
