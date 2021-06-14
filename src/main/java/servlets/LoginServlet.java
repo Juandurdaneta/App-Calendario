@@ -34,9 +34,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		RequestDispatcher rd = request.getRequestDispatcher("index.html");
-		rd.include(request, response);
+		response.sendRedirect("/");
 	}
 
 	/**
@@ -52,6 +50,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if(ControlLogin.login(request)) {
 			response.sendRedirect("calendario");
+			
 		}
 		else {
 			s.print("<script>window.alert('Clave o Usuario invalidos, intentalo de nuevo.')</script>");

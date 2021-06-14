@@ -28,6 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 <!-- CSS -->
 <link rel="stylesheet" href="public/styles/styles.css">
+<link rel="icon" type="image/png" href="public/images/calendarioFavicon.png"/>
 </head>
 <body>
 <section id="main">
@@ -46,7 +47,7 @@
 						<button style="float:left "type="submit" class="btn btn-primary btn-lg btn-floating">
 							<i class="fas fa-user"></i>
 						</button>
-						<p style="float:right" class="p-2" id="nombreUsuario">	Perfil</p>
+						<p style="float:right" class="p-2" id="nombreUsuario">	Ver Perfil</p>
 					</form>
 				</div>
 			</div>
@@ -62,12 +63,12 @@
 			
 		</div>
 		
-			<!-- Modal añadir evento -->
+		<!-- Modal añadir evento -->
 		<div
  			 class="modal fade"
   			id="anadirEventoModal"
   			tabindex="-1"
-  			aria-labelledby="exampleModalLabel"
+  			aria-labelledby="modalAgregarEvento"
  			 aria-hidden="true"
 									>
   		<div class="modal-dialog">
@@ -84,7 +85,7 @@
     
       <div class="modal-body">
       
-    	<form>
+    	
     	<!-- Nombre del evento -->
     	  <div class="form-outline mb-4">
     		<input type="text" id="nombreEvento" name="nombreEvento" class="form-control" />
@@ -119,17 +120,99 @@
     	
     	<!-- Agregar evento -->
     	
-    	<button type="submit" class="btn btn-primary btn-block mb-4">Agregar Evento</button>
+   		 <button class="btn btn-primary btn-block mb-4" id="agregarEvento">Agregar Evento</button>
     	
-    	</form>
-      
+    	
+      	
       </div>
       
       
     </div>
     
   </div>
-</div>
+</div> <!-- FIN DE AGREGAR EVENTO -->
+
+<!-- MODAL PARA EDITAR EVENTO -->
+ 
+		<div
+ 			 class="modal fade"
+  			id="editarEventoModal"
+  			tabindex="-1"
+  			aria-labelledby="editarEventoModal"
+ 			 aria-hidden="true"
+									>
+  		<div class="modal-dialog">
+    		<div class="modal-content p-4">
+
+   
+          		<button
+          		type="button"
+          		class="btn-close"
+         		 data-mdb-dismiss="modal"
+          		aria-label="Close"
+        		></button>
+        		
+        		
+    
+    
+      <div class="modal-body">
+      
+    	
+    	<!-- Nombre del evento -->
+    	  <div class="form-outline mb-4">
+    		<input type="text" id="tituloEvento" name="tituloEvento" class="form-control" />
+    		<label class="form-label" for="tituloEvento">Nombre del Evento</label>
+ 		 </div>
+ 		 <!-- Fecha inicio / Fecha Fin -->
+    	<div class="row mb-4">
+    		<div class="col-6">
+    			<div class="form-outline">
+    				<input  class="form-control" type="datetime-local" id="inicioEvento" name="inicioEvento" value="">
+    				<label class="form-label" for="inicioEvento">Fecha inicio</label>
+    			</div>
+    		</div>
+    		<div class="col-6">
+    			<div class="form-outline">
+    				<input class="form-control" type="datetime-local" id="finEvento" name="finEvento" value="">
+    				<label class="form-label" for="finEvento">Fecha fin</label>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- Imagen -->
+    	<div class="form mb-4">
+    		<label class="form-label" for="imagenEvento">Imagen: </label>
+    		<input type="file" name="imagenEvento" id="imagenEvento" class="form-control" accept="image/png, image/jpeg">
+    	</div>
+    	<!-- Color -->
+    	
+    	<div class="form mb-4">
+    		<label class="form-label" for="color">Color:</label>
+    		<input type="color" id="color" name="color" value="#0041C2">
+    	</div>
+    	
+    	<!-- Guardar cambios -->
+    	<div class="row">
+    	<div class="col-6">
+    	 <button class="btn btn-primary btn-block" id="guardarCambios">Guardar Cambios</button>
+    	</div>
+    	<div class="col-6">
+    	<!-- Eliminar evento -->
+   		 <button class="btn btn-dark btn-block" id="EliminarEvento"><i class="fas fa-trash"></i></button>
+    	</div>
+    	</div>
+   		
+   		
+   		
+    	
+      	
+      </div>
+      
+      
+    </div>
+    
+  </div>
+</div> <!-- FIN DE EDITAR EVENTO -->
+
 
 </section>
 
@@ -137,6 +220,7 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
-<script src="public/scripts/index.js"></script>
+<script src="public/scripts/scripts.js"></script>
+<script src="public/scripts/calendario.js"></script>
 </body>
 </html>
