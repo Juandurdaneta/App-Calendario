@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import controllers.ControlLogin;
 import controllers.LoginUser;
-import helpers.ValidarDatosUsuario;
+
 
 /**
  * Servlet implementation class LoginServlet
@@ -55,6 +55,8 @@ public class LoginServlet extends HttpServlet {
 		}
 		else {
 			s.print("<script>window.alert('Clave o Usuario invalidos, intentalo de nuevo.')</script>");
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			rd.include(request, response);
 		}
 	}
 
