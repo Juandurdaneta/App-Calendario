@@ -118,9 +118,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 fechaFinDeEventoSeleccionada = "";
                 colorEventoSeleccionado = "";
 
-                modalEvento.toggle();
+				document.getElementById("tituloEvento").value = "";
+                modalEvento.hide();
             }
            
+        });
+
+
+        //Modificar Evento
+
+        document.getElementById("guardarCambios").addEventListener("click", function(){
+            if(tituloEventoSeleccionado != "" && fechaInicioDeEventoSeleccionada != "" 
+            && fechaFinDeEventoSeleccionada != "" && colorEventoSeleccionado != ""){  
+
+               objEvento.setDates(document.getElementById("inicioEvento").value, document.getElementById("finEvento").value);
+               modalEvento.hide();
+                
+
+            }
+           
+
         });
 		
 	
