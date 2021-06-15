@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Servlet Filter implementation class FiltroLogin
  */
-@WebFilter(urlPatterns = {"/calendario", "/user/*"})
+@WebFilter(urlPatterns = {"/calendario", "/user", "/Eliminar"})
 public class FiltroLogin implements Filter {
 
     /**

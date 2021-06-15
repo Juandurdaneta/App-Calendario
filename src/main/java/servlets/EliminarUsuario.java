@@ -15,7 +15,7 @@ import controllers.ControlPerfiles;
 /**
  * Servlet implementation class EliminarUsuario
  */
-@WebServlet("/eliminar-cuenta")
+@WebServlet("/Eliminar")
 public class EliminarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,11 +44,12 @@ public class EliminarUsuario extends HttpServlet {
 		String username = (String) request.getSession().getAttribute("username");
 		PrintWriter s=response.getWriter(); 
 		if(usuarioAEliminar.equals(username) && ControlPerfiles.Eliminar(usuarioAEliminar)) {
-			response.sendRedirect("/");
+			response.sendRedirect("register");
 		}
 		else {
 			s.print("<script>window.alert('El nombre ingresado no coincide con el nombre de Usuario.')</script>");
-			response.sendRedirect("user/"+username);
+			RequestDispatcher rd = request.getRequestDispatcher("/public/views/perfil.html");
+			rd.include(request, response);
 
 		}
 	}
