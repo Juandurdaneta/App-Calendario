@@ -13,13 +13,15 @@ dateControl2.value = fechaFinInput;
 
 document.addEventListener("DOMContentLoaded", function () {
     var calendarEl = document.getElementById("calendar");
-    var eventos = [];
     var calendar = new FullCalendar.Calendar(calendarEl, {
       customButtons: {
         myCustomButton: {
           text: "Nuevo Evento",
           click: anadirEvento
         },
+        calendarList:{
+            text: "Calendarios",
+        }
       },
       headerToolbar: {
         center: "myCustomButton",
@@ -32,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     	    day: 'numeric',
     	    weekday: 'short',
     	  },
-    	  eventClick: verEvento
+    	  eventClick: verEvento,
+          events: '/Eventos'
       
     });
     	const myModalEl = document.getElementById('anadirEventoModal');

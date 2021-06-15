@@ -31,7 +31,44 @@ public class DB {
 		return db;
 	}
 	
-		
+	//Comprobando si el usuario ingresado existe
+	public boolean existe(String usuario) {
+		try {
+			this.stmt = this.conn.createStatement();
+			this.rs = this.stmt.executeQuery("SELECT username FROM users");
+			while(rs.next()) {
+				String key = rs.getString("username");
+				if(key.contentEquals(usuario)) {
+					return true;
+				}
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return false; 
+	}
+	
+	//Obteniendo datos del usuario
+	
+	public String[] getData(String username) {
+		try {
+			this.stmt = this.conn.createStatement();
+			this.rs = this.stmt.executeQuery("SELECT * FROM users");
+			while(rs.next()) {
+				if(username.contentEquals(rs.getString("username"))) {
+					String[] data = {
+							rs.getString("username")
+					};
+					return data;
+				}
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 	public void dbPrepareStatement(String query, Object... obj) {
 		try {
 			this.pstmt = this.conn.prepareStatement(query);
