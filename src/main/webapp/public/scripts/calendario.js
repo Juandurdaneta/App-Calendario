@@ -2,7 +2,6 @@ var date = new Date();
 var fechaInicioInput = toISOLocal(date).substring(0,16);
 date.setDate(date.getDate() + 1)
 var fechaFinInput = toISOLocal(date).substring(0,16);
-var eventos = [];
 var nuevoEvento = "";
 
 var username = document.getElementById('nombreUsuario');
@@ -40,36 +39,50 @@ document.addEventListener("DOMContentLoaded", function () {
     	const myModalEl = document.getElementById('anadirEventoModal');
     	const modal = new mdb.Modal(myModalEl);
     	
-    function anadirEvento(){
-    	//Mostrar el modal
-    	modal.show();
-    	
-    	//Boton agregar Evento
-    	document.getElementById("agregarEvento").addEventListener("click", function(){  
-    	//Variables
-    	var evento = document.getElementById("nombreEvento").value;
-    	var fecha_inicio = document.getElementById("fecha-inicio").value;
-    	var fecha_fin = document.getElementById("fecha-fin").value;
-    	var colorEvento = document.getElementById("colorEvento").value;
-    	
-    	nuevoEvento = {
-        title: evento,
-        start : fecha_inicio,
-        end : fecha_fin,
-        color: colorEvento
-    	};
-    	
-    	console.log(nuevoEvento);	
-    	
-        calendar.addEvent(nuevoEvento);
-    	modal.hide();
-    	 
-    	
-    });
-    
-   
-    
-    }
+
+        function anadirEvento(){
+            //Mostrar el modal
+            modal.toggle();
+            
+            //Boton agregar Evento
+            document.getElementById("agregarEvento").addEventListener("click", function(){  
+            //Variables
+            let evento = document.getElementById("nombreEvento").value;
+            let fecha_inicio = document.getElementById("fecha-inicio").value;
+            let fecha_fin = document.getElementById("fecha-fin").value;
+            let colorEvento = document.getElementById("colorEvento").value;
+            
+        
+            if(evento != "" && fecha_inicio != "" && fecha_fin != "" && colorEvento != ""){
+
+                nuevoEvento = {
+                    title: evento,
+                    start : fecha_inicio,
+                    end : fecha_fin,
+                    color: colorEvento
+                    };  
+
+                    evento = "";
+                    fecha_inicio = "";
+                    fecha_fin  = "";
+                    colorEvento = "";
+
+                    document.getElementById("nombreEvento").value = "";
+                    document.getElementById("fecha-inicio").value = fechaInicioInput;
+                    document.getElementById("fecha-fin").value = fechaFinInput;
+
+
+                calendar.addEvent(nuevoEvento);
+                modal.toggle();
+            }
+        
+             
+            
+        });
+        
+        
+        
+        }
     
     
 	function verEvento(info){
@@ -87,18 +100,27 @@ document.addEventListener("DOMContentLoaded", function () {
     	var fechaInicioEvento = toISOLocal(dateInicio).substring(0,16);
         var fechaFinEvento = toISOLocal(dateFin).substring(0,16);
 
-       
-		//Seteando los valores 
-        document.getElementById("tituloEvento").value = objEvento.title;
-        document.getElementById("inicioEvento").value = fechaInicioEvento;
-        document.getElementById("finEvento").value = fechaFinEvento;
-        document.getElementById("color").value = objEvento.backgroundColor;
+        let tituloEventoSeleccionado = document.getElementById("tituloEvento").value = objEvento.title;
+        let fechaInicioDeEventoSeleccionada = document.getElementById("inicioEvento").value = fechaInicioEvento;
+        let fechaFinDeEventoSeleccionada = document.getElementById("finEvento").value = fechaFinEvento;
+        let colorEventoSeleccionado = document.getElementById("color").value = objEvento.backgroundColor;
 
         //Eliminar Evento
 
         document.getElementById("EliminarEvento").addEventListener("click", function(){
-            objEvento.remove();
-            modalEvento.toggle();
+            if(tituloEventoSeleccionado != "" && fechaInicioDeEventoSeleccionada != "" 
+            && fechaFinDeEventoSeleccionada != "" && colorEventoSeleccionado != ""){
+
+                objEvento.remove();
+                
+                tituloEventoSeleccionado = "";
+                fechaInicioDeEventoSeleccionada = "";
+                fechaFinDeEventoSeleccionada = "";
+                colorEventoSeleccionado = "";
+
+                modalEvento.toggle();
+            }
+           
         });
 		
 	
