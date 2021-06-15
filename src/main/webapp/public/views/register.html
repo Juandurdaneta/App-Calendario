@@ -27,24 +27,32 @@
 </head>
 <body style="font-family: 'Open Sans', sans-serif;">
 
-
+<!-- Imagen de fondo -->
+<div class="bg-image bg-image vh-100 shadow-1-strong" id="registerBackground">
+            <video style="min-width: 100%; min-height: 100%;" playsinline autoplay muted loop>
+        <source class="h-100" src="public/images/backgroundVideo.mp4" type="video/mp4" />
+    </video>
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
+<!-- Imagen de fondo -->
 <section class="main-section">
 
 	<div class="container">
+	
+	<br>
 		<div class="row d-flex justify-content-center">
 		<br>
-		<!-- Texto de bienvenida -->
-			<div class="col-xl-12 col-md-8 text-center">
-				<h1 style="color:#ce973e">Registrate</h1>
-				<br>
-				
-			</div>
-			
-			
+		
+				<div class="col-xl-12 col-md-8 text-center">
+				</div>	
 			<!-- Formulario de Registro -->
 			
 			<div class="col-xl-5 col-md-8">
 				<form class="bg-white rounded shadow-5-strong p-5" id="main-form" action="register" method="post">
+				<!-- Texto de bienvenida -->
+					<div class="col-xl-12 col-md-8 text-center">
+						<h2 style="color:#ce973e">Registrate</h2>
+						<br>
+					</div>		
 					<div class="form-outline mb-4">
 						<input type="text" class="form-control" name="username" id="username">
 						<label for="username" class="form-label"><i class="fas fa-user"></i> Nombre de usuario</label>
@@ -65,10 +73,8 @@
 				<!-- Boton para volver a la pantalla de inicio de sesion -->
 				
 				<div class="d-grip gap-2 text-center">
-				<h3 style="color:#4a4a4a">Ya tienes cuenta?</h3>
-				<br>
-				
-				<a class="btn btn-outline-dark btn-lg" href="/">Iniciar sesion</a>
+				<h3 style="color:#ffffff">Ya tienes cuenta?</h3>	
+				<a class="btn btn-outline-light btn-lg" href="/">Iniciar sesion</a>
 				</div>
 				
 			</div>
@@ -76,7 +82,8 @@
 	</div>
 
 </section>
-
+</div>
+</div>
 
 <script
   type="text/javascript"
