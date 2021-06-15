@@ -12,6 +12,6 @@ window.onload = function inicio(){
     .then(response =>{
         console.log('Resultados: ', response)
         alert(response.message)
-        usuario.value = response.username;
+        usuario.innerHTML = response.username;
     });
 }
