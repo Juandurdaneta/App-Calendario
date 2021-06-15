@@ -5,26 +5,24 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import controllers.ControlLogin;
-import controllers.LoginUser;
-
+import controllers.ControlPerfiles;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class EliminarUsuario
  */
-@MultipartConfig()
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/eliminar-cuenta")
+public class EliminarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public LoginServlet() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EliminarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.sendRedirect("/");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -42,21 +40,16 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		response.setContentType("text/html");
-		PrintWriter s=response.getWriter();
-		String username = request.getParameter("username");
-		String pass = request.getParameter("pass");
-		
-		if(ControlLogin.login(request)) {
-			request.getSession().setAttribute("username", username);
-			response.sendRedirect("calendario");
-			
+		String usuarioAEliminar = request.getParameter("nombreUserAEliminar");
+		String username = (String) request.getSession().getAttribute("username");
+		PrintWriter s=response.getWriter(); 
+		if(usuarioAEliminar.equals(username) && ControlPerfiles.Eliminar(usuarioAEliminar)) {
+			response.sendRedirect("/");
 		}
 		else {
-			s.print("<script>window.alert('Clave o Usuario invalidos, intentalo de nuevo.')</script>");
-			RequestDispatcher rd = request.getRequestDispatcher("index.html");
-			rd.include(request, response);
+			s.print("<script>window.alert('El nombre ingresado no coincide con el nombre de Usuario.')</script>");
+			response.sendRedirect("user/"+username);
+
 		}
 	}
 

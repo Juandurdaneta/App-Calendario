@@ -24,9 +24,6 @@
 <!-- CSS -->
 <link rel="icon" type="image/png" href="public/images/calendarioFavicon.png"/>
 <style>
-#main{
-		padding: 2% 7%;
-	}
 	
 	.formularioPerfil .btn{
 		margin: 5% 12%;
@@ -108,12 +105,21 @@
       <p class="alert alert-warning">Importante leer esto</p>
       
       <div>
-      <p>Esta accion no se puede deshacer, estas eliminando permanentemente el usuario <strong>${username}</strong>, los calendarios,
+      <p>Esta accion no se puede deshacer, estas eliminando permanentemente tu usuario, los calendarios,
       los eventos y todo lo que contenga esta cuenta.</p>
       
-      <p>Por favor, escribe <strong>${username}</strong> para confirmar.</p>
+      <p>Por favor, escribe tu nombre de usuario para confirmar para confirmar.</p>
       
       </div>
+      
+      <form action="eliminar-cuenta" method="post">
+      	<div class="form-outline mb-4">
+      		<input type="text" id="nombreUserAEliminar" class="form-control" name="nombreUserAEliminar">
+      		<label for="nombreUserAEliminar" class="form-label">Nombre de usuario</label>
+      	</div>
+      	<button type="submit" class="btn btn-danger btn-block" id="btnEliminar">Eliminar cuenta</button>
+      </form>
+      
       
       </div>
       
@@ -129,7 +135,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
 
-<script type="text/javascript" src="public/scripts/index.js"></script>
-
+<script src="public/scripts/scripts.js"></script>
 </body>
 </html>

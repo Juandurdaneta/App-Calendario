@@ -3,7 +3,6 @@ var fechaInicioInput = toISOLocal(date).substring(0,16);
 date.setDate(date.getDate() + 1)
 var fechaFinInput = toISOLocal(date).substring(0,16);
 var nuevoEvento = "";
-
 var username = document.getElementById('nombreUsuario');
 
 
