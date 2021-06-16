@@ -14,3 +14,4 @@ Realizado por Juan Urdaneta C.I. 27.683.174
 - [x] Eliminar perfil de usuario
 
 -------------
+La aplicacion fue desarrollada utilizando Java en el backend. Para el front end no se empleo ningun framwork en especifico, se utilizo **Bootstrap 5**, y para manejar las bases de datos se utilizo PostgreSQL
