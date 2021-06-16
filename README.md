@@ -12,6 +12,7 @@ Realizado por Juan Urdaneta C.I. 27.683.174
 - [x] Eliminar eventos
 - [x] Modificar datos del perfil de usuario
 - [x] Eliminar perfil de usuario
+- [x] Filtros para verificar si hay una sesion iniciada. 
 
 -------------
 La aplicacion fue desarrollada utilizando Java en el backend. Para el front end no se empleo ningun framwork en especifico, se utilizo **Bootstrap 5** para mantener un estilo consistente a lo largo de la pagina. Para el manejo de la base de datos relacional se utilizo **PostgreSQL**. Todos los commits fueron hechos desde el Bash de GIT
