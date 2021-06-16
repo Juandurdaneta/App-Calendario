@@ -1,5 +1,5 @@
 # App-Calendario
-Clon de google calendar hecho utilizando Java, HTML, Javascript y CSS.
+Clon de google calendar hecho utilizando Java, HTML, Javascript y CSS.\n
 Proyecto N1 Para la materia de Desarrollo Web II 
 Realizado por Juan Urdaneta C.I. 27.683.174
 
@@ -12,3 +12,5 @@ Realizado por Juan Urdaneta C.I. 27.683.174
 - [x] Eliminar eventos
 - [x] Modificar datos del perfil de usuario
 - [x] Eliminar perfil de usuario
+
+#
