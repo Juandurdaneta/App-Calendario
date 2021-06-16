@@ -14,7 +14,8 @@ Realizado por Juan Urdaneta C.I. 27.683.174
 - [x] Eliminar perfil de usuario
 
 -------------
-La aplicacion fue desarrollada utilizando Java en el backend. Para el front end no se empleo ningun framwork en especifico, se utilizo **Bootstrap 5** para mantener un estilo consistente a lo largo de la pagina. Para el manejo de la base de datos relacional se utilizo **PostgreSQL**.
+La aplicacion fue desarrollada utilizando Java en el backend. Para el front end no se empleo ningun framwork en especifico, se utilizo **Bootstrap 5** para mantener un estilo consistente a lo largo de la pagina. Para el manejo de la base de datos relacional se utilizo **PostgreSQL**. Todos los commits fueron hechos desde el Bash de GIT
 
 -------------
 
+[Deploy en Heroku](https://app-calendario-web2.herokuapp.com/).
