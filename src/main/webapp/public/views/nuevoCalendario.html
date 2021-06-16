@@ -23,14 +23,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="public/styles/styles.css">
 <link rel="icon" type="image/png" href="public/images/calendarioFavicon.png"/>
+<style>
+	#formularioCalendario{
+		padding: 5% 7%;
+	}
+</style>
 </head>
-<body style="font-family: 'Open Sans', sans-serif;">
+<body style="font-family: 'Open Sans', sans-serif;" id="formularioCalendario">
 
-
+<div class="container">
 <!-- Formulario para nuevos Calendarios -->
-
+<div class="row d-flex justify-content-center">
+<div class="col-xl-5 col-md-8 text-center" >
+				<!-- Form en el centro -->
+				<form class="bg-white rounded shadow-5-strong p-5 main-form" id="nuevoCalendario"> 
+						<h2>Crear nuevo calendario</h2>
+						<br>
+					<div class="form-outline mb-4">
+						<input type="text" id="nuevoCalendario" class="form-control" name="nombreCalendario"/>
+						<label class="form-label" for="nuevoCalendario"> Nombre del calendario a crear</label>
+					</div>
+					
+					<button type="submit" class="btn btn-primary btn-block" id="btn_enviar">Crear calendario</button>
+				</form>
+</div>
+</div>
 <!-- Formulario para nuevos Calendarios -->
-
+</div>
 
 <script
   type="text/javascript"

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import controllers.ControlPerfiles;
 /**
  * Servlet implementation class PerfilServlet
  */
+@MultipartConfig
 @WebServlet("/user")
 public class PerfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
