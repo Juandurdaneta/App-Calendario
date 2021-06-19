@@ -11,7 +11,6 @@ window.onload = function inicio(){
     .catch(error => console.error('Error:', error))
     .then(response =>{
         console.log('Resultados: ', response)
-        alert(response.message)
         usuario.innerHTML = response.username;
     });
 }
