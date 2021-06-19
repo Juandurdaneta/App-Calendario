@@ -61,28 +61,36 @@
 	
 	<br>
 	
-	<!-- Formulario para editar imagen de perfil -->
+	<!-- Formulario para cambiar contraseña -->
 	<div class="row d-flex justify-content-center">
-		<div class="col-4 text-center">
-			<p>Imagen de perfil:</p>
-		</div>
-		<div class="col-8">
-			<form>
-				<div class="form-group w-50 formularioPerfil">
-    			<input type="file" name="imagenPerfil" id="imagenPerfil" class="form-control" accept="image/png, image/jpeg">
-    			</div>
-    			<div class="form-group formularioPerfil">
-    			<button class="btn">Guardar cambios y volver</button>
-    			</div>
+		<div class="col-5">
+			<form action="EditarUsuario" method="post">
+			<h4>Cambiar Contraseña</h4>
+			<hr>
+			<div class="form-outline mb-4">
+				<input type="text" id="myPassword" name="myPassword" class="form-control">
+				<label class="form-label" for="myPassword">Contraseña Actual</label>
+			</div>
+			<div class="form-outline mb-4">
+				<input type="text" id="nuevaContraseña" name="nuevaContraseña" class="form-control">
+				<label class="form-label" for="nuevaContraseña">Nueva Contraseña</label>
+			</div>
+			<div class="form-outline mb-4">
+				<input type="text" id="confirmarNuevaContraseña" name="confirmarNuevaContrasñea" class="form-control">
+				<label class="form-label" for="confirmarNuevaContraseña">Confirmar nueva contraseña</label>
+			</div>
+				<button type="submit" class="btn btn-dark btn-block" >Guardar cambios y volver</button>
 			</form>
+		<hr>
 		</div>
+		
 	</div>
 	
 	<!-- Eliminar Cuenta -->
 	<div class="row d-flex justify-content-center eliminarCuenta">
 	
 		<div class="col-2 p-2 ">
-			<button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#eliminarUsuarioModal">Eliminar cuenta</button>
+			<button type="button" class="btn btn-outline-danger" data-mdb-toggle="modal" data-mdb-target="#eliminarUsuarioModal">Eliminar cuenta</button>
 		</div>
 		<div
   class="modal fade"
