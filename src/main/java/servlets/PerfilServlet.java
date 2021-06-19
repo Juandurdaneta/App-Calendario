@@ -36,7 +36,8 @@ public class PerfilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/public/views/perfil.html").forward(request, response);
-	}
+		response.setContentType("application/json");
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
