@@ -169,13 +169,3 @@ document.addEventListener("DOMContentLoaded", function () {
          sign + z(off/60|0) + ':' + z(off%60); 
 }
   
-//AGREGAR NUEVO CALENDARIO
-
-
- var botonAgregarCalendario = document.getElementById("botonAgregarCalendario");
- 
- botonAgregarCalendario.onClick = function(){
-const modalNuevoCalendario = document.getElementById('agregarCalendarioModal');
-const modalCalendario = new mdb.Modal(modalNuevoCalendario);
- modalCalendario.toggle();
- }

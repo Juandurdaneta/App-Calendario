@@ -2,6 +2,7 @@ package controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import helpers.DB;
 
@@ -12,18 +13,16 @@ public class ControlPerfiles {
 	public ControlPerfiles() {
 		
 	}
-	
-	
+
 	public static String perfil(HttpServletRequest request, HttpServletResponse response, String username) {
 		DB database = DB.getInstances();
 		
 		if(database.existe(username)) {
 			String[] data = database.getData(username);
-			return "{\"message\":\"Perfil Encontrado\"," + "\"username\":\"" + data[0]+"\"status\":200}";
+			return ("{\"message\":\"Perfil Encontrado\"," + "\"username\":\"" + data[0]+"\", \"status\":"+200+"}");
 			
 		}else {
-			return "{\"message\":\"Perfil no encontrado\","
-					+ "\"status\":400}";
+			return ("{\"message\": \"Perfil no encontrado\", \"status\":"+200+"}");
 		}
 	}
 	

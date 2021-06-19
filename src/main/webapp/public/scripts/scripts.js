@@ -1,7 +1,7 @@
 window.onload = function inicio(){
     var usuario = document.getElementById("nombreDeUsuario");  
 
-    fetch('https://app-calendario-web2.herokuapp.com/user', {
+    fetch('user', {
         method: "POST",
         mode: "no-cors",
         headers: new Headers({

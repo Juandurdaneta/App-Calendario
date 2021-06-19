@@ -36,7 +36,6 @@ public class PerfilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/public/views/perfil.html").forward(request, response);
-		response.setContentType("application/json");
 		}
 
 	/**
@@ -44,6 +43,7 @@ public class PerfilServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		System.out.println("Respuesta del servlet para: "+session.getAttribute("username"));
 		response.setContentType("application/json");
 		PrintWriter output = response.getWriter();
 		output.println(ControlPerfiles.perfil(request, response, (String) request.getSession().getAttribute("username")));
